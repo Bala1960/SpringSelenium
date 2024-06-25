@@ -1,5 +1,11 @@
-node{
-     stages {
+pipeline {
+    agent any
+    tools { 
+      maven 'MAVEN_HOME' 
+      jdk 'JAVA_HOME' 
+    }
+    
+    stages {
         stage('checkout') {
             steps {
                 git "https://github.com/Bala1960/SpringSelenium.git"
@@ -27,5 +33,5 @@ node{
                 
             }
         }
-
+    }
 }
