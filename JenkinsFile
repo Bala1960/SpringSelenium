@@ -1,0 +1,11 @@
+node{
+     stage('SCM checkout')
+          {
+            git 'https://github.com/Bala1960/SpringSelenium'
+          }
+     stage('compile-package')
+         {
+            bat "mvn package"
+
+
+}
