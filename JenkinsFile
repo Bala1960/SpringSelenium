@@ -6,6 +6,5 @@ node{
      stage('compile-package')
          {
             bat "mvn package"
-
-
+         }
 }
