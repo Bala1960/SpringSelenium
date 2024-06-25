@@ -1,10 +1,31 @@
 node{
-     stage('SCM checkout')
-          {
-            git 'https://github.com/Bala1960/SpringSelenium'
-          }
-     stage('compile-package')
-         {
-            bat "mvn package"
-         }
+     stages {
+        stage('checkout') {
+            steps {
+                git "https://github.com/Bala1960/SpringSelenium.git"
+                echo "checkout of the Git repository"
+            }
+        }
+        stage('Build') {
+            steps {
+                    bat "mvn install"
+                    echo "compile the batch file"
+                
+            }
+        }
+        stage('Test') {
+            steps {
+                    bat "mvn test"
+                    echo "test the batch"
+                
+            }
+        }
+        stage('Deploy') {
+            steps {
+                    bat "mvn package"
+                    echo "Deploy the batch"
+                
+            }
+        }
+
 }
